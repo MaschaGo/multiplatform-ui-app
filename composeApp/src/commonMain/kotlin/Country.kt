@@ -2,8 +2,7 @@ import kotlinx.datetime.TimeZone
 
 data class Country(val name: String, val zone: TimeZone, val image: String)
 
-
-class MockCountry{
+class MockCountry {
     fun countries() = listOf(
         Country("Japan", TimeZone.of("Asia/Tokyo"), "jp.png"),
         Country("France", TimeZone.of("Europe/Paris"), "fr.png"),

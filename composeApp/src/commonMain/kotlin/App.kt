@@ -95,9 +95,6 @@ fun App(countries: List<Country> = MockCountry().countries()) {
                 Text("Select Location")
             }
 
-
-
-
             Button(
                 modifier = Modifier.padding(top = 10.dp),
                 onClick = { showContent = !showContent }) {

@@ -24,8 +24,6 @@ class Date {
         return "The time in $location is ${localTime.formatted()}"
     }
 
-
-
     fun currentTimeAtLocation(location: String): String? {
         fun LocalTime.formatted() = "$hour:$minute:$second"
 
