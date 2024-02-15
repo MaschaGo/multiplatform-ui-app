@@ -8,8 +8,6 @@ xcuserdata/
 local.properties
 /local.properties
 
-.fleet
-
 .idea
 /.idea/caches
 /.idea/libraries
