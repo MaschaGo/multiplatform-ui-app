@@ -1,7 +1,13 @@
-class Greeting {
-    private val platform = getPlatform()
+//class Greeting {
+//    private val platform = getPlatform()
+//
+//    fun greet(): String {
+//        return "Hello, ${platform.name}!"
+//    }
+//}
 
-    fun greet(): String {
+class Greeting(private val platform: Platform) {
+    fun greeting(): String {
         return "Hello, ${platform.name}!"
     }
 }

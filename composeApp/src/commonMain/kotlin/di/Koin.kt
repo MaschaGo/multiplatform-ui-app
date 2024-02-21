@@ -7,7 +7,6 @@ fun appModule() = module {
     listOf(commonModule, platformModule)
 }
 
-
 fun initKoin() {
     startKoin {
        appModule()
