@@ -15,9 +15,9 @@ kotlin {
             }
         }
     }
-    
+
     jvm("desktop")
-    
+
     listOf(
         iosX64(),
         iosArm64(),
@@ -28,13 +28,16 @@ kotlin {
             isStatic = true
         }
     }
-    
+
     sourceSets {
         val desktopMain by getting
-        
+
         androidMain.dependencies {
             implementation(libs.compose.ui.tooling.preview)
             implementation(libs.androidx.activity.compose)
+            api(libs.koin.android)
+            implementation(libs.kotlinx.coroutines.android)
+            implementation(libs.ktor.client.android)
         }
         commonMain.dependencies {
             implementation(compose.runtime)
@@ -43,11 +46,53 @@ kotlin {
             implementation(compose.ui)
             @OptIn(ExperimentalComposeLibrary::class)
             implementation(compose.components.resources)
+
+            implementation(libs.kotlinx.coroutines.core)
+
+            //di
+            api(libs.koin.core)
+
+            //sharedVm
+            api(libs.kmm.viewmodel.core)
+
+            //network
+            implementation(libs.ktor.client.core)
+            implementation(libs.ktor.client.content.negotiation)
+            implementation(libs.ktor.serialization.kotlinx.json)
+            implementation(libs.ktor.client.json)
+            implementation(libs.ktor.client.logging)
+
+            implementation(libs.kotlinx.serialization.core)
             implementation(libs.kotlinx.datetime)
+
+            //image loader
+            implementation(libs.image.loader)
+
+            //local
+            implementation(libs.multiplatform.settings.no.arg)
         }
         desktopMain.dependencies {
             implementation(compose.desktop.currentOs)
+            implementation(libs.ktor.client.jvm)
         }
+        iosMain.dependencies {
+            implementation(libs.ktor.client.ios)
+        }
+        commonTest.dependencies {
+            implementation(kotlin("test-common"))
+            implementation(kotlin("test-annotations-common"))
+            implementation(libs.kotlinx.coroutines.test)
+            implementation(libs.koin.test)
+        }
+
+        val androidInstrumentedTest by getting {
+            dependencies {
+                implementation(libs.androidx.ui.test.junit4.android)
+                implementation(libs.androidx.ui.test.manifest)
+            }
+        }
+
+
     }
 }
 
