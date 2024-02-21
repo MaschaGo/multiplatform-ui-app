@@ -5,6 +5,9 @@ plugins {
     alias(libs.plugins.kotlinMultiplatform)
     alias(libs.plugins.androidApplication)
     alias(libs.plugins.jetbrainsCompose)
+    alias(libs.plugins.kotlinxSerialization)
+    // Required for moko-resources to work
+//    alias(libs.plugins.mokoResources)
 }
 
 kotlin {
@@ -30,15 +33,25 @@ kotlin {
     }
 
     sourceSets {
+        // Required for moko-resources to work
+//        applyDefaultHierarchyTemplate()
+
         val desktopMain by getting
 
-        androidMain.dependencies {
-            implementation(libs.compose.ui.tooling.preview)
-            implementation(libs.androidx.activity.compose)
-            api(libs.koin.android)
-            implementation(libs.kotlinx.coroutines.android)
-            implementation(libs.ktor.client.android)
+        androidMain {
+            dependencies {
+                implementation(libs.compose.ui.tooling.preview)
+                implementation(libs.androidx.activity.compose)
+                api(libs.koin.android)
+                implementation(libs.kotlinx.coroutines.android)
+//            implementation(libs.ktor.client.android)
+                implementation(libs.ktor.client.okhttp)
+            }
+
+            // Required for moko-resources to work
+//            dependsOn(commonMain.get())
         }
+
         commonMain.dependencies {
             implementation(compose.runtime)
             implementation(compose.foundation)
@@ -70,13 +83,17 @@ kotlin {
 
             //local
             implementation(libs.multiplatform.settings.no.arg)
+
+            // Required for moko-resources to work
+//            implementation(libs.moko.resources.compose)
         }
         desktopMain.dependencies {
             implementation(compose.desktop.currentOs)
             implementation(libs.ktor.client.jvm)
         }
         iosMain.dependencies {
-            implementation(libs.ktor.client.ios)
+//            implementation(libs.ktor.client.ios)
+            implementation(libs.ktor.client.darwin)
         }
         commonTest.dependencies {
             implementation(kotlin("test-common"))
@@ -91,8 +108,6 @@ kotlin {
                 implementation(libs.androidx.ui.test.manifest)
             }
         }
-
-
     }
 }
 
@@ -110,6 +125,12 @@ android {
         targetSdk = libs.versions.android.targetSdk.get().toInt()
         versionCode = 1
         versionName = "1.0"
+    }
+    buildFeatures {
+        compose = true
+    }
+    composeOptions {
+        kotlinCompilerExtensionVersion = libs.versions.compose.compiler.get()
     }
     packaging {
         resources {
@@ -141,3 +162,8 @@ compose.desktop {
         }
     }
 }
+
+// Required for moko-resources to work
+//multiplatformResources {
+//    multiplatformResourcesPackage = "com.maschago.multiplatformui"
+//}
