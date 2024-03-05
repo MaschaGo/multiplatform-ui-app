@@ -46,6 +46,9 @@ kotlin {
                 implementation(libs.kotlinx.coroutines.android)
 //            implementation(libs.ktor.client.android)
                 implementation(libs.ktor.client.okhttp)
+
+                //navigation
+//                implementation(libs.decompose)
             }
 
             // Required for moko-resources to work
@@ -64,6 +67,11 @@ kotlin {
 
             //di
             api(libs.koin.core)
+
+            //navigation
+//            implementation(libs.decompose)
+//            implementation(libs.decompose.jetbrains)
+            api(libs.precompose)
 
             //sharedVm
             api(libs.kmm.viewmodel.core)
