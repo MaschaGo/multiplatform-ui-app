@@ -11,7 +11,7 @@ androidx-espresso-core = "3.5.1"
 androidx-material = "1.11.0"
 androidx-test-junit = "1.1.5"
 
-compose = "1.6.2"
+compose = "1.6.3"
 compose-compiler = "1.5.5"
 compose-plugin = "1.5.12"
 extensionsComposeJetbrains = "2.1.4-compose-experimental"
@@ -19,6 +19,10 @@ imageLoader = "1.7.5"
 junit = "4.13.2"
 kmmViewmodelCore = "1.0.0-ALPHA-19"
 koin = "3.5.3"
+koin-bom = "3.5.3"
+
+koinCompose = "1.0.4"
+koin-compose-multiplatform = "1.1.2"
 kotlin = "1.9.22"
 kotlinx-dateTime = "0.4.1"
 kotlinxCoroutines = "1.8.0"
@@ -28,6 +32,7 @@ multiplatformSettingsNoArg = "1.1.1"
 mokoResources = "0.23.0"
 decompose = "2.2.0-alpha03"
 precompose = "1.5.10"
+lifecycleViewmodelCompose = "2.7.0"
 
 [libraries]
 androidx-ui-test-junit4-android = { module = "androidx.compose.ui:ui-test-junit4-android", version.ref = "compose" }
@@ -37,8 +42,12 @@ decompose-jetbrains = { module = "com.arkivanov.decompose:extensions-compose-jet
 image-loader = { module = "io.github.qdsfdhvh:image-loader", version.ref = "imageLoader" }
 kmm-viewmodel-core = { module = "com.rickclephas.kmm:kmm-viewmodel-core", version.ref = "kmmViewmodelCore" }
 koin-android = { module = "io.insert-koin:koin-android", version.ref = "koin" }
+#koin-bom = { module = "io.insert-koin:koin-bom", version.ref = "koin-bom" }
+#koin-core = { module = "io.insert-koin:koin-core" }
+koin-compose = { module = "io.insert-koin:koin-compose", version.ref = "koinCompose" }
 koin-core = { module = "io.insert-koin:koin-core", version.ref = "koin" }
 koin-test = { module = "io.insert-koin:koin-test", version.ref = "koin" }
+koin-compose-multiplatform = { module = "io.insert-koin:koin-compose", version.ref = "koin-compose-multiplatform" }
 kotlin-test = { module = "org.jetbrains.kotlin:kotlin-test", version.ref = "kotlin" }
 kotlin-test-junit = { module = "org.jetbrains.kotlin:kotlin-test-junit", version.ref = "kotlin" }
 junit = { group = "junit", name = "junit", version.ref = "junit" }
@@ -74,6 +83,12 @@ ktor-serialization-kotlinx-json = { module = "io.ktor:ktor-serialization-kotlinx
 multiplatform-settings-no-arg = { module = "com.russhwolf:multiplatform-settings-no-arg", version.ref = "multiplatformSettingsNoArg" }
 moko-resources-compose = { module = "dev.icerock.moko:resources-compose", version.ref = "mokoResources" }
 precompose = { module = "moe.tlaster:precompose", version.ref = "precompose" }
+precompose-viewmodel = { module = "moe.tlaster:precompose-viewmodel", version.ref = "precompose" }
+precompose-koin = { module = "moe.tlaster:precompose-koin", version.ref = "precompose" }
+androidx-lifecycle-viewmodel-compose = { group = "androidx.lifecycle", name = "lifecycle-viewmodel-compose", version.ref = "lifecycleViewmodelCompose" }
+
+napier = "io.github.aakira:napier:2.7.1"
+
 
 [plugins]
 androidApplication = { id = "com.android.application", version.ref = "agp" }

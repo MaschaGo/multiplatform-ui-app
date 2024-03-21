@@ -28,31 +28,36 @@ import org.jetbrains.compose.resources.painterResource
 
 @OptIn(ExperimentalResourceApi::class)
 @Composable
-fun GreetingScreen () {
+fun GreetingScreen() {
 
-        var showContent by remember { mutableStateOf(false) }
-        val greeting = remember { Greeting(platform = Platform()).greeting() }
-        Column(Modifier.fillMaxWidth(), horizontalAlignment = Alignment.CenterHorizontally) {
-            Text(
-                text = "Today's date is ${todaysDate()}",
-                modifier = Modifier.padding(20.dp),
-                fontSize = 24.sp,
-                textAlign = TextAlign.Center
-            )
-            Button(onClick = { showContent = !showContent }) {
-                Text("Click me!")
+    var showContent by remember { mutableStateOf(false) }
+    val greeting = remember { Greeting(platform = Platform()).greeting() }
+    Column(Modifier.fillMaxWidth(), horizontalAlignment = Alignment.CenterHorizontally) {
+        Text(
+            text = "Today's date is ${todaysDate()}",
+            modifier = Modifier.padding(20.dp),
+            fontSize = 24.sp,
+            textAlign = TextAlign.Center
+        )
+        Button(onClick = { showContent = !showContent }) {
+            val text = if (!showContent) {
+                "Click me!"
+            } else {
+                "Hide!"
             }
-            AnimatedVisibility(showContent) {
-                Column(
-                    Modifier.fillMaxWidth(),
-                    horizontalAlignment = Alignment.CenterHorizontally
-                ) {
-                    Image(painterResource("compose-multiplatform.xml"), null)
-                    Text("Compose: $greeting")
-                }
+            Text(text)
+        }
+        AnimatedVisibility(showContent) {
+            Column(
+                Modifier.fillMaxWidth(),
+                horizontalAlignment = Alignment.CenterHorizontally
+            ) {
+                Image(painterResource("compose-multiplatform.xml"), null)
+                Text("Compose: $greeting")
             }
         }
     }
+}
 
 
 fun todaysDate(): String {

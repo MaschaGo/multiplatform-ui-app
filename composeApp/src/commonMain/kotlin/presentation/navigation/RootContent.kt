@@ -14,6 +14,8 @@ import androidx.compose.runtime.Composable
 import moe.tlaster.precompose.navigation.NavHost
 import moe.tlaster.precompose.navigation.Navigator
 import moe.tlaster.precompose.navigation.rememberNavigator
+import org.koin.compose.koinInject
+import presentation.MidJourneyViewModel
 import presentation.screens.ChatScreen
 import presentation.screens.GreetingScreen
 import presentation.screens.HomeScreen
@@ -21,7 +23,10 @@ import presentation.screens.MidJourneyScreen
 
 @Composable
 fun RootContent() {
+    // ROOT CONTENT WITH NAVIGATION
     val navigator = rememberNavigator()
+    val viewModel = koinInject<MidJourneyViewModel>()
+
     Scaffold(bottomBar = { BottomBar(navigator) }) {
         NavHost(
             navigator = navigator,
@@ -34,7 +39,7 @@ fun RootContent() {
                 GreetingScreen()
             }
             scene("/midjourney") {
-                MidJourneyScreen()
+                MidJourneyScreen(viewModel = viewModel)
             }
 
             scene("/midjourney/{id}") { backstackEntry ->
@@ -51,11 +56,12 @@ fun RootContent() {
 }
 
 @Composable
-fun BottomBar(navigator : Navigator) {
+fun BottomBar(navigator: Navigator) {
+
     BottomAppBar {
         BottomNavigationItem(
             selected = true,
-            onClick = { navigator.navigate("/home")},
+            onClick = { navigator.navigate("/home") },
             icon = {
                 Icon(
                     imageVector = Icons.Default.Home,
@@ -65,7 +71,7 @@ fun BottomBar(navigator : Navigator) {
         )
         BottomNavigationItem(
             selected = true,
-            onClick = {navigator.navigate("/greeting")},
+            onClick = { navigator.navigate("/greeting") },
             icon = {
                 Icon(
                     imageVector = Icons.Default.Person,
@@ -75,7 +81,7 @@ fun BottomBar(navigator : Navigator) {
         )
         BottomNavigationItem(
             selected = true,
-            onClick = {navigator.navigate("/midjourney")},
+            onClick = { navigator.navigate("/midjourney") },
             icon = {
                 Icon(
                     imageVector = Icons.Default.AccountCircle,
@@ -85,7 +91,7 @@ fun BottomBar(navigator : Navigator) {
         )
         BottomNavigationItem(
             selected = true,
-            onClick = {navigator.navigate("/chat")},
+            onClick = { navigator.navigate("/chat") },
             icon = {
                 Icon(
                     imageVector = Icons.Default.AccountBox,

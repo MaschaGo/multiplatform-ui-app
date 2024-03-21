@@ -59,6 +59,7 @@ kotlin {
             implementation(compose.runtime)
             implementation(compose.foundation)
             implementation(compose.material)
+            implementation(compose.animation)
             implementation(compose.ui)
             @OptIn(ExperimentalComposeLibrary::class)
             implementation(compose.components.resources)
@@ -67,11 +68,20 @@ kotlin {
 
             //di
             api(libs.koin.core)
+            implementation(libs.koin.compose.multiplatform)
+             implementation(libs.koin.compose)
+//            implementation("io.insert-koin:koin-androidx-compose:3.5.0")
+//            api(libs.koin.compose)
+//            implementation("io.insert-koin:koin-compose:3.5.3")
+//            implementation(libs.koin.bom)
+//            implementation(libs.koin.core)
 
             //navigation
 //            implementation(libs.decompose)
 //            implementation(libs.decompose.jetbrains)
             api(libs.precompose)
+            api(libs.precompose.viewmodel)
+            api(libs.precompose.koin)
 
             //sharedVm
             api(libs.kmm.viewmodel.core)
@@ -94,6 +104,9 @@ kotlin {
 
             // Required for moko-resources to work
 //            implementation(libs.moko.resources.compose)
+
+            // Multiplatform Logging
+            api(libs.napier)
         }
         desktopMain.dependencies {
             implementation(compose.desktop.currentOs)
@@ -157,6 +170,9 @@ android {
     dependencies {
         debugImplementation(libs.compose.ui.tooling)
     }
+}
+dependencies {
+    implementation(libs.androidx.lifecycle.viewmodel.compose)
 }
 
 compose.desktop {

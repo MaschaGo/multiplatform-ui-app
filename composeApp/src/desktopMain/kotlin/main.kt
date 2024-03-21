@@ -5,7 +5,7 @@ import androidx.compose.ui.window.application
 import di.initKoin
 
 fun main() {
-    initKoin()
+    initKoin { }
     application {
         Window(onCloseRequest = ::exitApplication, title = "MultiplatformUi") {
             App()

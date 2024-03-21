@@ -1,11 +1,13 @@
 package com.maschago.multiplatformui
 
 import android.app.Application
-import di.initKoin
+import io.github.aakira.napier.DebugAntilog
+import io.github.aakira.napier.Napier
 
 class MultiplatformUiApp : Application() {
     override fun onCreate() {
         super.onCreate()
-        initKoin()
+        // Initialize Logging.
+        Napier.base(DebugAntilog())
     }
 }
