@@ -117,6 +117,10 @@ kotlin {
 //            implementation(libs.ktor.client.ios)
             implementation(libs.ktor.client.darwin)
         }
+
+//        val iosSimulatorArm64Main by getting {
+//            dependsOn(iosMain.get())
+//        }
         commonTest.dependencies {
             implementation(kotlin("test-common"))
             implementation(kotlin("test-annotations-common"))
@@ -172,9 +176,9 @@ android {
         debugImplementation(libs.compose.ui.tooling)
     }
 }
-dependencies {
-    implementation(libs.androidx.lifecycle.viewmodel.compose)
-}
+//dependencies {
+//    implementation(libs.androidx.lifecycle.viewmodel.compose)
+//}
 
 compose.desktop {
     application {

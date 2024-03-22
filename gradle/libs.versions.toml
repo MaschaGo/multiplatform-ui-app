@@ -21,7 +21,7 @@ kmmViewmodelCore = "1.0.0-ALPHA-19"
 koin = "3.5.3"
 koin-bom = "3.5.3"
 
-koinCompose = "1.1.2"
+koinCompose = "1.0.4"
 koin-compose-multiplatform = "1.1.2"
 kotlin = "1.9.22"
 kotlinx-dateTime = "0.4.1"
@@ -29,7 +29,7 @@ kotlinxCoroutines = "1.8.0"
 kotlinxSerializationCore = "1.6.3"
 ktorClient = "2.3.8"
 multiplatformSettingsNoArg = "1.1.1"
-mokoResources = "0.23.0"
+mokoResources = "0.24.0-alpha-4"
 decompose = "2.2.0-alpha03"
 precompose = "1.5.10"
 lifecycleViewmodelCompose = "2.7.0"
@@ -81,7 +81,7 @@ ktor-client-jvm = { module = "io.ktor:ktor-client-jvm", version.ref = "ktorClien
 ktor-client-logging = { module = "io.ktor:ktor-client-logging", version.ref = "ktorClient" }
 ktor-serialization-kotlinx-json = { module = "io.ktor:ktor-serialization-kotlinx-json", version.ref = "ktorClient" }
 multiplatform-settings-no-arg = { module = "com.russhwolf:multiplatform-settings-no-arg", version.ref = "multiplatformSettingsNoArg" }
-moko-resources-compose = { module = "dev.icerock.moko:resources-compose", version.ref = "mokoResources" }
+#moko-resources-compose = { module = "dev.icerock.moko:resources-compose", version.ref = "mokoResources" }
 precompose = { module = "moe.tlaster:precompose", version.ref = "precompose" }
 precompose-viewmodel = { module = "moe.tlaster:precompose-viewmodel", version.ref = "precompose" }
 precompose-koin = { module = "moe.tlaster:precompose-koin", version.ref = "precompose" }
@@ -96,4 +96,4 @@ androidLibrary = { id = "com.android.library", version.ref = "agp" }
 jetbrainsCompose = { id = "org.jetbrains.compose", version.ref = "compose-plugin" }
 kotlinMultiplatform = { id = "org.jetbrains.kotlin.multiplatform", version.ref = "kotlin" }
 kotlinxSerialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
-mokoResources = { id = "dev.icerock.mobile.multiplatform-resources", version.ref = "mokoResources" }
+#mokoResources = { id = "dev.icerock.mobile.multiplatform-resources", version.ref = "mokoResources" }
