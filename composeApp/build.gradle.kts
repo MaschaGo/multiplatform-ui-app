@@ -76,6 +76,7 @@ kotlin {
 //            implementation(libs.koin.bom)
 //            implementation(libs.koin.core)
 
+            implementation("co.touchlab:stately-common:2.0.5")
             //navigation
 //            implementation(libs.decompose)
 //            implementation(libs.decompose.jetbrains)
